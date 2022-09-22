@@ -1,0 +1,215 @@
+:root {
+  --general-font: "Inter", sans-serif;
+  --title-size: 65px;
+  --font-color: #c3dfe0;
+}
+
+body {
+  padding: 30px;
+  font-family: var(--general-font);
+  color: var(--font-color);
+  background-color: #0a2342;
+}
+
+hr {
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: var(--title-size);
+  font-weight: 700;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+.nav-link {
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.signed-text {
+  text-align: right;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  row-gap: 20px;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.card-image {
+  width: 14rem;
+  border: 2px solid #c3dfe0;
+  border-radius: 5px;
+}
+
+.auction-card {
+  width: 14rem;
+}
+
+.card-content {
+  background-color: #0c2b52;
+  border-width: 0 2px 2px 2px;
+  border-radius: 5px;
+  border-color: #c3dfe0;
+  border-style: solid;
+  padding: 10px;
+  text-align: center;
+}
+
+.card-atitle {
+  color: white;
+  font-weight: 700;
+}
+
+.card-adesc {
+  color: white;
+  font-size: 0.8rem;
+}
+
+.auc-btn {
+  background-color: #c3dfe0;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.95rem;
+  margin: 10px 0 10px;
+}
+
+.auc-btn:hover {
+  background-color: transparent;
+  outline: 2px solid;
+  outline-color: #c3dfe0;
+  color: white;
+}
+
+.comment-field {
+  background-color: beige;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 5px;
+  max-width: 350px;
+}
+.comment-field:focus {
+  outline: none;
+}
+
+.bid-field {
+  color: black;
+  width: 120px;
+  background-color: beige;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.bid-field:focus {
+  outline: none;
+}
+
+.auction-image {
+  margin-bottom: 20px;
+  width: 16rem;
+}
+
+.auction-display {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.auction-details {
+  max-width: 48ch;
+}
+
+.comment-container {
+  max-width: 350px;
+  margin: 20px 0 10px;
+  background-color: #0c2b52;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.comment-details {
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.582);
+  margin-bottom: 10px;
+}
+
+.category-link a {
+  text-decoration: none;
+  color: #c3dfe0;
+}
+
+#id_item_name {
+  background-color: beige;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px 0 10px 0;
+}
+
+#id_item_description {
+  background-color: beige;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px 0 10px 0;
+  vertical-align: middle;
+}
+
+#id_starting_price {
+  background-color: beige;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px 0 10px 0;
+}
+
+#id_image_url {
+  background-color: beige;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px 0 10px 0;
+}
+
+#id_category {
+  background-color: beige;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px 0 10px 0;
+}
+
+#id_item_name:focus,
+#id_item_description:focus,
+#id_starting_price:focus,
+#id_image_url:focus {
+  outline: none;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: #c3dfe0;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.95rem;
+  margin: 10px 10px 10px 2px;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: transparent;
+  outline: 2px solid;
+  outline-color: #c3dfe0;
+  color: white;
+}
+
+.descrip-label {
+  vertical-align: middle;
+}

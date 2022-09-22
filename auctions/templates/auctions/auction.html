@@ -1,0 +1,70 @@
+{% extends "auctions/layout.html" %} 
+{% block body %}
+
+<h2>{{ auction.item_name }}</h2>
+
+<div class="auction-display">
+{% if auction.image_url != "" %}
+<img src="{{auction.image_url}}" alt="" class="auction-image">
+{% else %}
+<img src="{{auction.image.url}}" alt="" class="auction-image">
+{% endif %}
+<div class="auction-details">
+Listed by: <strong>{{ auction.user }}</strong> <br>
+<strong>Description:</strong> <br> {{ auction.item_description }} <br> <br>
+<strong>Starting Price:</strong> ${{ auction.starting_price }} <br>
+{% if auction.bids.last.bid_amount %}
+  <strong>Current Bid:</strong> ${{ auction.bids.last.bid_amount }}
+{% else %}
+  <strong>Current Bid: No Bid</strong>
+{% endif %}
+
+<form method="POST" action="{% url 'e_watchlist' auction.pk %}">
+  {% csrf_token %} {% if exists %}
+  <input class="auc-btn" type="submit" value="Remove from Watchlist" />
+  {% else %}
+  <input class="auc-btn" type="submit" value="Add to Watchlist" />
+  {% endif %}
+</form>
+
+{% if request.user == auction.user and auction.active == True %}
+<form method="POST" action="{% url 'close' auction.pk %}"> {% csrf_token %}
+  <input class="auc-btn" type="submit" value="Close Auction" />
+</form>
+{% elif auction.active == False %}
+<h3>Auction is closed.</h3>
+<br>
+<h3>🎉 <strong>{{ auction.bids.last.user }}</strong> has won the auction! 🎉</h3>
+{% endif %}
+</div>
+</div>
+
+
+<div class="bid-quantity">{{ auction.bids.count }} bid(s) have been placed.</div> 
+{% if request.user != auction.user and auction.active == True %}
+<form action="{% url 'make_bid' auction.pk %}" method="POST">
+  {% csrf_token %} {{ bidform }}
+  <label for="id_bid_amount">$</label> <br>
+  <input class="auc-btn" type="submit" value="Make Bid" />
+</form>
+{% endif %}
+
+
+
+
+<form method="POST" action="{% url 'comment' auction.pk %}">
+{% csrf_token %}
+    {{ commentform }}
+    <input class="auc-btn" type="submit" value="Submit Comment" style="display: block">
+</form>
+
+
+
+{% for comment in all_comments %}
+<div class="comment-container">
+<div class="comment-details">By <strong>{{ comment.user }}</strong>, on <strong>{{ comment.date }} UTC</strong></div>
+<div class="comment-content">{{ comment.comment }}</div>
+</div>
+{% endfor %}
+
+{% endblock %}
